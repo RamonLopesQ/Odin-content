@@ -1,0 +1,150 @@
+ ---- Ubuntu/Linux ----
+ 
+ sudo (super_user)
+ sudo apt update
+ sudo apt upgrade
+ sudo apt-get install name
+ sudo dpkg -i nome_do_arquivo.deb
+ sudo dpkg -r nome_do_arquivo.deb
+ mkdir nome_do_diretório
+ mkdir -p a/b/c
+ cd ~/Nome_do_diretório
+ cd Pasta_no_diretório
+ cd ..	
+ cd
+ pwd
+ ls nome_do_diretorio
+ ls -l
+ ls -a
+ ls -lt
+ ln source_file target_file *(hardlink)
+ ln -s source_file target_file *(symlink)
+ cp source_file target_file
+ rm source_file
+ code
+ cat > arquivo.txt (Cria o arquivo txt em branco, e é possível editar no proprio terminal o texto)
+ touch arquivo_em_branco
+ find arquivo_no_diretorio
+ 
+ ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉
+ 
+ ---- git -----
+ 
+ Sintaxe Básica: program | action | destination
+ 
+ Repositorio Remoto:
+ git init
+ git clone git@github.com:USERNAME/REPOSITORY.git
+ git push
+ git push origin mais
+ 
+ Workflow:
+ git add name_file
+ git add .
+ git commit -m "Message describing"
+ 
+ Verificação:
+ git status
+ git log
+ 
+ ---- HTML ----
+ 
+ 
+ 
+ ---- CSS ----
+ 
+ 
+ 
+ ---- DOM ----
+ 
+ * -> Desencorajado
+ 
+ -- Construtor Document() --
+ 
+ 	- Methods - 
+ 
+ document.adoptNode(externalNode) - Adota um nó externo
+ document.append(param1,param2,...) - Adiciona os parâmetros
+ document.createAttribute("name") - Novo atributo
+ document.createComment("data") - Novo Nó de comentários
+ document.createElement("tagName") - Novo elemento
+ document.getAnimations() - Atribui uma animação de Animations
+ document.getElementById(id) - Retorna o elemento da ID inserida
+ document.getElementByClassName(class) - Retorna apenas os elementos da classe
+ document.getElementByName(name) - Retorna a node list
+ document.getElementByTagName(name) - Retorna HTMLCollection
+ document.importNode(externalNode) - Importa um nó externo
+ document.querySelector(selector) - Retorna o primeiro elemento que possui aquele seletor
+ document.querySelectorAll(selector) - Retorna todos os elementos com aquele seletor
+ document.replaceChildren(param1,...) - Troca os filhos existentes pelos indicados no parâmetro
+ *document.open() - Abre um documento simples
+ *document.write("content") - Escreve o texto no documento
+ *document.close() - Fecha o documento simples
+ 
+ 	- Events - 
+ 
+ document.addEventListener("DOMContentLoaded", (event) => {});
+ document.addEventListener("copy", (event) => {}); 
+ 	document.oncopy = (event) => {};
+ document.addEventListener("cut", (event) => {});
+ 	document.oncut = (event) => {};
+ document.addEventListener("paste", (event) => {}); 
+ 	document.onpaste = (event) => {};
+ document.addEventListener("fullscreenchange", (event) => {});
+ 	document.onfullscreenchange = (event) => {};
+ document.addEventListener("scroll", (event) => {});
+ 	document.onscroll = (event) => {};
+ document.addEventListener("selectionchange", (event) => {});
+	document.onselectionchange = (event) => {};
+ document.addEventListener("visibilitychange", (event) => {});
+	document.onvisibilitychange = (event) => {};
+	
+ -- Construtor Element() --
+ 
+ 	- Methods -
+ 	
+ element.animate(keyframes,options) - aplica uma animação no elemento
+ element.closest(selectors) - Retorna o ancestral mais próximo
+ element.getAttribute(nomeDoAtributo) - Retorna o valor do argumento
+ element.getAttributeNames() - Retorna uma array de strings com os nomes dos atributos
+ element.getAttributeNode(attrName) - Retorna um atributo especifico de um elemento especifico
+ element.getElementsByClassName(className) - Retorna uma HTMLCollection da class
+ element.hasAttribute(name) - Verifica se o atributo existe e retorna true ou false
+ element.hasAttributes() - Verifica se tem algum atributo e retorna true ou false
+ element.querySelector(selectors) - Retorna o primeiro com aquele seletor
+ element.querySelectorAll(selectors) - Retorna uma nodelist que representa todos com aquele seletor
+ element.remove() - Remove o elemento do DOM
+ element.removeAttribute(attrName) - Remove o atributo do elemento
+ element.removeAttributeNode(attrNode) - Remove o nó do atributo do elemento
+ element.scroll(x-coord,y-coord) - Scrolla o elemento para um set específico de coordenadas
+ element.setAttribute(name,value) - Seta o valor de um atributo a um elemento
+ element.setAttribute(attribute) - Seta um novo nó de atributos ao elemento
+ 
+ 	- Events - 
+ element.addEventListener("animationcancel", (event) => {});
+ element.addEventListener("animationend", (event) => {});
+ element.addEventListener("animationstart", (event) => {});
+ element.addEventListener("click", (event) => {});
+ element.addEventListener("copy", (event) => {});
+ element.addEventListener("cut", (event) => {});
+ element.addEventListener("paste", (event) => {});
+ element.addEventListener("dblclick", (event) => {});
+ element.addEventListener("focus", (event) => {});
+ element.addEventListener("blur", (event) => {});
+ element.addEventListener("input", (event) => {});
+ element.addEventListener("animationcancel", (event) => {});
+ element.addEventListener("mousedown", (event) => {});
+ element.addEventListener("mouseenter", (event) => {});
+ element.addEventListener("mouseleave", (event) => {});
+ element.addEventListener("mousemove", (event) => {});
+ element.addEventListener("mouseover", (event) => {});
+ element.addEventListener("mouseout", (event) => {});
+ element.addEventListener("mouseup", (event) => {});
+ element.addEventListener("scroll", (event) => {});
+ element.addEventListener("scrollend", (event) => {});
+ element.addEventListener("touchend", (event) => {});
+ element.addEventListener("touchcancel", (event) => {});
+ element.addEventListener("touchmove", (event) => {});
+ element.addEventListener("touchstart", (event) => {});
+ 
+ ----  ----

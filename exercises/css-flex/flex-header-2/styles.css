@@ -1,0 +1,57 @@
+body {
+    background-color: #d8d8d8;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a{
+    text-decoration: none;
+    color: purple;
+}
+
+.header-area{
+    display: flex;
+    flex-direction: row;
+    background-color:white;
+    justify-content: space-between;
+}
+        
+        
+    .links-area{
+        display: flex;
+        flex-direction: row;
+        gap: 17px;
+        padding: 10px;
+        align-items: center;
+    }
+        #logo{
+            font-size: 32px;
+            font-weight: 1000;
+        }
+       
+    .notification-area{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        padding: 8px;
+        
+    }
+
+        #notification{
+            background-color: purple;
+            font-size: 0.9em;
+            padding: 8px 20px;
+            border-radius: 8px;
+        }
+        #notification a{
+            color: white;
+            
+        }
+
+        #notification-circle{
+            background-color: purple;
+            padding: 12px;
+            border-radius: 50%;
+        }

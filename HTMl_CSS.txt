@@ -1,0 +1,253 @@
+HTML / CSS - Markup languages (linguagens de marcação)
+
+---- HTML ----
+
+* Conjunto emaranhado de elementos determinados por tags de abertura e fechamento.
+* Elementos void são elementos que não possuem tag de fechamento, ou seja, eles não podem enrolar conteudo juntos como outras tags fazem
+* Se digitar apenas ! e pressionar enter, o proprio VSCode irá gerar a estrutura básica do documento (só funciona com arquivos .html)
+* Elementos aninhados criam uma relação de pai e filho, onde os elementos dentro são os filhos, e o que abriga eles é o pai. O nível de aninhamento é determinado pelo número de camadas ao qual o elemento se encontra. Elementos no mesmo nível são chamados de irmãos. Geralmente o nível de recuo dentro do código é utilizado de maneira visual para determinar em qual nível de aninhamento o elemento se encontra. Esse nível de relacionamento é importante para determinar características que serão transmitidas de um elemento para o outro (hereditariedade), entre outras coisas
+
+-- DOM (Document Object Model) --
+
+* O DOM é uma interface de programação para os documentos HTML e XML. Representa a página de forma que os programas possam alterar a estrutura do documento, o estilo e o conteúdo.
+Ele é construído utilizando várias APIs que trabalham juntas. O DOM principal define os objetos que descrevem fundamentalmente um documentos e os objetos dentro dele.
+* O DOM não é uma linguagem de programação, mas sem ela, a linguagem javascript não teria nenhum modelo ou noção de páginas da web, documentos HTML, documentos XML e suas partes componentes. 
+* Cada elemento de um documento (cabeçalho, documento como um todo, tabelas, texto) faz parte do modelo de objeto do documento desse documento, para que todos possam ser acessados utilizando o método DOM e uma linguagem de script como JS.
+* O DOM foi projetado para ser independente de qualquer linguagem de programação específica, disponobilizando a representação estrutural do documento a parte de uma única API consistente.
+
+-- SVG (Scalable Vector Graphics) -- 
+
+* SVGs são um tipo de imagem muito comum na web. Elas sao um formato de imagem escalável, o que as torna incrivelmente manipuláveis, mantendo a qualidade sem perder o tamanho do arquivo.
+
+* São constantemente usadas para: ícones, gráficos, imagens simples e largas, backgrounds padrões, aplicar efeitos para outros elementos via filtros SVG.
+
+* SVG significa Scalable Vector Graphics. Vetores gráficos são imagens definidas por matemática, em oposição ao tradicional gráfico rasterizado (imagens feitas por pixels), onde a imagem é definida por uma grade de pixels. Com gráficos rasterizados, os detalhes são limitados pelo tamanho da grade de pixels. Se desejar aumentar o tamanho da imagem (escalá-la), é necessário aumenta o tamanho da grade. Com vetores gráficos, no entanto, não tem grade. Ao invés disso, existem fórmulas para diferentes formatos e linhas. Como só são fórmulas, não importa quão largo ou pequeno seja, será escalado no formato desejado, e não terá efeito na qualidade ou no tamanho do arquivo.
+
+* Outro aspecto do SVG, é que ele é definido como XML (Extensible Markup Language). XML é uma sintaxe como HTML que é usada para várias coisas, como APIs, RSS, etc.
+
+* O SVG é human-readable, ou seja, quando aberto o arquivo, é possível entendê-lo na linguagem humana.
+
+* O SVG também foi feito para ser interoperável com HTML, o que significa que é possível coloca-lo direto no arquivo HTML, sem mudanças, e aparecerá como imagem. E como eles podem se tornar elementos no DOM, assim como elementos HTML, é posssível utilizar o CSS neles, e criá-los utilizando a Element WebAPI.
+
+* No entanto, apesar de todos os benefícios, SVGs não são eficientes quando é necessário armazenar imagens complexas, como imagens fotorealistas.
+
+* Estrutura básica:
+
+	* <svg xmlns="" viewBox=""> 
+		SVG Code 
+	</svg>
+	
+	* Ex: <div class = "container">
+		<svg ¹xmlns = "http://www.w3.org/2000/svg" ²viewBox = "0 0 100 100">
+			³<rect x=0 y =0 width =100 height=100 ⁴fill="burlywood"/>
+			<path d="M 10 10 H 90 V 90 L 10 60" fill="transparent" stroke="black" stroke-width="3"/>
+			<circle cx=50 cy=50 r=20 class="svg-circle"/>
+			<g class="svg-text-group">
+				<text x="20" y="25" rotate="10" id="hello-text">Hello!</text>
+				<use href="#hello-text" x="-10" y="65" fill="white"/>
+			</g>
+		</svg>
+	</div>
+
+* Legenda: 
+¹ - xmlns: "XML NameSpace". Especifíca qual dialeto do XML está sendo usado. No caso do exemplo, o dialeto é a linguagem SVG. Sem isso, o browser não irá renderizar a imagem, ou irá renderizá-la incorretamente.
+² - viewBox: Define o vínculo of SVG. Quando for definido a posição de diferentes pontos do elemento no SVG, isso que irá referenciá-los. Também define o aspect ratio e a origem do SVG.
+³ - <rect>,<circle>,<path>,<text>: São elementos definidos pelo SVG namespace. São blocos construtores básicos. Imagens complexas criadas com SVG são feitas por dúzias desses elementos. 
+⁴ - fill="", stroke="": Atributos SVG, que podem ser mudados no CSS.
+
+* Existem duas maneiras de integrar o SVG dentro do documento: inline ou linkado.
+	- Inline: Basta colocar o código diretamente do código web.
+	**- Linkando: Pode ser usado em um elemento HTML, como <img>, ou linkando no CSS, usando background-image: url(./my-image.svg). Elas serão escaladas propriamente, mas o conteúdo do SVG não será acessível pela página web.
+
+-- Estrutura --
+
+	<!DOCTYPE html> - Diz ao navegador qual versão do html deve ser usada para renderizar ao documento (no caso, html5)
+
+	<html></html> - Elemento raiz do documento, o que quer dizer que todos os elementos que virão a seguir no documento serão descendentes desse elemento html
+
+		<html lang="en"></html> - Determina a linguagem do texto usada. Aprimora a acessibilidade, permitindo tecnologias assistivas, como leitores de tela, a adaptar de acordo com a linguagem usada, e usar a pronuncia correta
+
+	<head></head> - Onde são colocadas as informações meta da webpage, e coisas utilizadas para renderizar corretamente a página (não deve ser utilizado nenhum elemento que exibe conteúdo dentro do head)
+
+	<meta> - Determina a codificação utilizada pela webpage. É necessário para garantir que a página irá exibir símbolos e caracteres especiais de diferentes linguagem no browser
+
+		<meta charset = "utf-8"> - Charset padrão
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> - Adapta a página ao tamanho da tela de diferentes aparelhos, relacionado com o design responsivo das páginas
+
+	<title></title> - Usado para dar a página web um título que pode ser lido por humanos e que será exibido na aba do browser
+
+	<body></body> - Onde todo o conteúdo que será exibido ficará
+
+-- Elementos Baseados em Texto --
+
+	<p></p> - Parágrafo
+
+	<h1></h1> ao <h6></h6> - Header
+
+	<strong></strong> - Negrito
+
+	<em></em> - Itálico
+
+	<!-- Comments --> - Comentário em HTML (VSCode shortcut = ctrl + /)
+
+-- Listas Ordenadas e Desordenadas --
+
+	<ul></ul> - Lista Desordenada
+
+	<ol></ol> - Lista Ordenada
+
+	<li></li> - Elemento da lista
+
+-- Links e Imagens --
+
+	* A adição do comportamento rel no elemento anchor serve como medida de segurança. O noopener ajuda a evitar ataques phishing (o link aberto pode mudar a página original para outra, com o objetivo de enganar o usuário). Isso é referido como tabnabbing. O noreferrer ajuda a evitar que o link aberto saiba em qual página estava linkado
+	* Se esquecer de adicionar rel="noopener noreferrer", os browsers mais atuais providenciam a segurança deles, caso o target="_blank" esteja presente
+	* Links absolutos são links que levam para páginas de outros sites na internet. Geralmente ele é dividido em: protocolo://domain/path
+	* Links relativos são links para outras páginas diferentes do mesmo site, assumindo que o nome de domínio é o mesmo da página que criou o link
+	* Adicionar ./ antes do link, diz ao código que deve começar a procurar pelo arquivo na arquivo/diretório relativo ao diretório atual
+
+	- Links -
+
+	<a></a> - Anchor element (cria link)
+
+		<a href=""></a> - Atributo HTML que define o destino levado ao clicar no link (hypertext reference)
+
+		<a target=""></a> - Atributo HTML que define o conteúdo linkado será aberto
+			target="_blank" - Valor referente a abrir em uma nova aba
+			target="_self" - Valor referente a abrir na aba atual (valor padrão)
+			
+		<a rel=""></a> - Atributo HTML usado para descrever a relação entre a página atual e o documento linkado
+			rel="noopener" - Valor que previne o link aberto de ganhar acesso a página anterior a qual ele foi aberto
+			rel="noreferrer" - Valor que previne que o link aberto saiba de qual página ou recurso tenha uma referência a ele (já inclui o comportamento do valor "noopener" dentro dele)
+		
+- Imagens -	
+
+	<img> - Insere uma imagem no arquivo
+
+		<img src=""> - Atributo HTML que indica qual o endereço ao qual a imagem se encontra
+
+		<img alt=""> - Atributo HTML que descreve a imagem. Caso a imagem não seja carregada, ele irá mostrar o texto com a descrição da mesma
+
+		<img width=""> - Atributo HTML que determina a largura da imagem (em pixels, ou px)
+
+		<img height=""> - Atributo HTML que determina a algura da imagem (em pixels, ou px)
+		
+-- Input --
+
+	<input type=""> - Adiciona um input 
+
+-- Table --
+
+* Tabelas devem ser usadas para dados tabulares apenas. Evite usar como container do header, ou coisas parecidas, pois: reduz a acessibilidade para usuários com deficiência visual, visto que os screen reader podem confundir; Pode tornar o código difícil de escrever, fazer manutenção, e encontrar bugs, pois o layout da table envolve mais estruturas de marcação complexas do que técnicas de layout propriamente ditas; Não são automaticamente responsivas, pois os containers serão abrigadas dentro de outros containers, e irão herdar o tamanho baseado no pai, o que pode levar a uma bola de neve que demandará muito mais trabalho para organizar.
+
+	<table></table> - Cria uma tabela
+	
+		<tr></tr> - Cria uma linha na tabela, onde todo o conteúdo adicionado ficará nessa linha
+		
+		<th></th> - Cria um header na tabela
+		
+			<th scope=""> - Deve ser adicionado no <th>. Esse atributo diz exatamente quais células fazer parte do grupo desse header (pode ser scope="col", scope="row", scope="colgroup" ou scope="rowgroup")
+			
+			<th id=""> - Cria uma ID para o th, que será usada pelos headers dos filhos para indicar a qual grupo pertence (permite o screen reader entender melhor a tabela)
+			
+			<th headers=""> - Indica a quais grupos de IDs aquele elemento pertence
+		
+		<td></td> - Cria uma célula dentro da tabela, que permite adicionar itens
+		
+			<td colspan="value"> - Determina quantas colunas a célula irá ocupar
+			
+			<td rowspawn="value"> - Determina quantas linhas a célula irá ocupar
+		
+		<colgroup><col style="property: value" span="1"/></colgroup> - Permite criar um grupo onde todos os elementos determinados pelo valor do span (pode ser row ou col), irão receber aquela propriedade de style
+		<colgroup><col span="value"/></colgroup> - Pula a coluna atual (no caso, o número de colunas que irá pular depende do valor do span)
+		<rowgroup></rowgroup> - Aceita os mesmo valores, mas trabalha com grupos de linhas ao invés de colunas
+		
+		<caption></caption> - Adiciona uma descrição do conteúdo da tabela
+		
+		<thead></thead> - Cria uma área de cabeçalho na tabela, que juntará em uma linha os elementos contendo os títulos das colunas. Deve ser usada depois do <col>/<colgroup>
+		
+		<tbody></tbody> - Cria a área principal da tabela, onde ficará todo o conteúdo que não for header ou footer
+		
+		<tfooter></tfooter> - Cria a área de rodapé da tabela
+		
+---- CSS ----
+
+* Seletores se referem a elementos HTML aos quais as regras CSS serão aplicadas 
+* O seletor universal é *
+* O type selector (ou element selector) irá selecionar todos os elementos daquele tipo, e a sintaxe é o nome do elemento
+* O class selector utiliza o nome da classe atribuida ao elemento HTML. A sintaxe é .class_name{}
+* O ID selector utiliza o nome da id atribuida ao elemento HTML. A sintaxe é #id_name{}
+* A diferença entre class e ID é que os elementos só podem ter uma id, enquanto podem apresentar varias classes
+* Classes que apresentam os mesmo styles, podem ser separadas por virgula, para economizar espaço no código (.a,.b{style:value}
+* Quando separados por pontos, é chamado de chaining selector, onde apenas o elemento que tiver aquelas duas ou mais classes sofrerá a alteração de estilo (.a.b{} ou .a#b{})
+* Elementos separados por espaço seguem a regra da ancestralidade, onde o primeiro é o pai, e os outros dentro dele são os herdeiros. Quando separados por pontos, apenas os elementos filhos que tiverem o primeiro ancestral comum irão herdar as características atribuídas. (.ancestral .herdeiros{})
+
+-- CSS Externo,Interno e Inline --
+
+Externo: <head>  <link rel="stylesheet" href="styles.css">  </head>
+Interno: <head>  <style> CSS code </style> </head>
+Inline: <selector style="color:white; background-color:black">...</selector> 
+
+-- Atributos --
+
+* height: 100vh e width: 100vw faz o conteúdo ocupar o tamanho todo da página (vh é view height e vw é view width)
+
+color: #000000
+color: rgb(0,0,0)
+color: hsl(0,%,%)
+
+background-color: #000000
+background-color: rgb(0,0,0)
+background-color: hsl(0,%,%) 
+
+font-family: "font-name",family
+font-size: px
+font-weight: 0 (entre 1 e 1000; 700 equivale a bold)
+text-align: center
+
+height: px (valor "auto", faz o ajuste proporcional entre o height e o width)
+width: px
+
+-- CSS Cascade --
+
+* Especificidade = Determina qual regra realmente vai ser aplicada ao HTML. Uma declaraçao CSS que é mais específica, irá apresentar precedência sobre as menos específicas (ID selector > Class selector > Type selector > Specific selector)
+* Herança = Algumas propriedades CSS que, quando aplicadas a um elementos, serão herdadas pelos seus descendentes. Propriedades baseadas em tipografia (color, font-size, font-family, etc) geralmente são herdadas, enquanto a maioria das propriedades não.
+
+-- Box Models --
+
+padding: px; - Aumenta o espaço entre a borda do box e o conteúdo do box
+border: px; - Adiciona espaço entre a margem e o padding
+margin: px; - Aumenta o espaço entre a borda do box e as bordas do box adjacente
+*** box-sizing: border-box; - Em caso de adição de padding, o próprio CSS adequará o tamanho da caixa para o width e height definidos, diferente do content-box, que irá adicionar o tamanho do padding ao tamanho total da caixa
+
+-- Block e Inline --
+
+* Div é um elemento de nível bloco. É geralmente usado como container para outros elementos serem agrupados
+* Span é um elemento de nível inline. É geralmente usado como agrupamento de conteúdo de texto para serem estilizados
+
+display: block; - Elementos que apresentam esse tipo de display, irão se comportar de maneira empilhada, cada elemento começando em uma nova linha
+display: inline; - Elementos inline não começam uma nova linha. Eles aparece ao lado de quaisquer elementos q eles foram colocados ao lado. Ex: links, <a> tags
+display: inline-block; - Elementos que se comportam como inline elements, mas com padding e margin de blocos
+
+-- Flexbox -- 
+
+* É uma maneira utilizada para organizar itens em colunas e linhas. Esses itens irão flexionar (aumentar ou diminuir) baseado em algumas regras que podem ser definidas.
+* Um flex container é um elemento q tem display: flex nele. Um flex item é um elemento que vive dentro de um flex container
+* flex: 1 é igual a flex-grow: 1, flex-shrink: 1 e flex-basis: 0
+* O valor padrão do flex-basis é auto. No caso ele irá adequar o tamanho base de acordo com o tamanho da declaração width
+* Quando utilizado o flex-direction para column, o flex basis irá se referir ao height ao invés do width, visto que o número de elementos dispostos na mesma linha ja será pré-definido
+
+display: flex;
+flex: 1; - Shorthand para flex-grow, flex-shrink, flex-basis
+flex-grow: 1; - Fator de crescimento. Flex: 1 diz que todas as divs dentro do container irão crescer da mesma forma. Flex: 2 2x
+flex-shrink: 1; - Fator de encolhimento. Quanto maior o value, menor ele será proporcionalmente ao tamanho dos outros elementos
+flex-basis: 1; - Determina o valor inicial do flex item, onde qualquer valor de flex-grow ou shrink irá usar ele de base
+flex-direction: ; - Determina a organização dos elementos no flexbox (row em linhas/horizontal, colums em colunas/vertical)
+justify-content: center; - Alinha os items de acordo com o main axis (space-between, center, space-around)
+align-items: center; - Alinha os items de acordo com o cross axis
+gap: px; - Cria um espaço específico entre os flex items
+
+
+
+

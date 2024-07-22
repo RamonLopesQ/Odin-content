@@ -1,0 +1,43 @@
+.header{
+    display: flex;
+    background-color: #f7f8e0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}
+
+a {
+    text-decoration-line: none;
+}
+
+.links-one, .links-two{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.number a{
+    color: blue;
+}
+
+#logo a{
+    color: red;
+}
+
+.number,#logo{
+    background-color: white;
+}
+
+.number{
+    padding: 12px;
+}
+
+#logo{
+    font-size: 36px;
+    font-weight: 700;
+    padding: 8px 30px;
+}

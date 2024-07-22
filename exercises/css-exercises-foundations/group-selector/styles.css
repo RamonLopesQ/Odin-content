@@ -1,0 +1,14 @@
+.click_dark,.click_yellow{
+    font-size: 28px;
+    font-family: "Helvetica","Times New Roman", sans-serif;
+}
+
+.click_dark{
+background-color: black;
+color: white;
+font-weight: 700;
+}
+
+.click_yellow{
+background-color: yellow;
+}

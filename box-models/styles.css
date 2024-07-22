@@ -1,0 +1,22 @@
+* {
+    outline: 2px solid red;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box-1 {
+    box-sizing: content-box;
+    width: 700px;
+    height: 300px;
+    padding: 50px;
+    border: 30px solid black;
+}
+
+.box-2 {
+    box-sizing: border-box;
+    width: 700px;
+    height: 300px;
+    padding: 50px;
+    border: 30px solid black;
+}

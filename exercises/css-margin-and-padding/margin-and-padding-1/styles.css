@@ -1,0 +1,28 @@
+* {
+    margin: auto 10%;
+    box-sizing: border-box;
+}
+
+.one,.three{
+    padding: 32px;
+}
+
+
+.one{
+    margin: 12px;
+    border:  3px solid blue;
+    background-color: pink;
+}
+
+.two{
+    border: 3px solid brown;
+    background-color: #a9f5f2;
+    margin: auto 0 24px 0;
+}
+
+.three{
+    
+    border: 3px solid orange;
+    margin: 24px 0 auto 50%;
+    background-color: #f3e2a9;
+}

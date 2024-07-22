@@ -1,0 +1,28 @@
+-- Node JS --
+
+Curl - sudo apt install curl
+
+Ubuntu Package - sudo apt update && sudo apt upgrade
+
+NVM - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+	Inicializar NVM - export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+	Verificar se o NVM está instalado - command -v nvm
+	
+Node - nvm install --lts
+
+	Diz qual versão do node usar - nvm use --lts
+	
+	Executar Node - node
+	
+	Sair do Node no console - .exit
+	
+	Criar o package.json e executar o npm - npm init
+	
+	Instalar o Jest - npm install --save-dev jest
+		* Dentro do package.json: Mudar "scripts": {"test": "jest"}
+	
+	Executar o jest para testes: npm test nameArchive	
+	

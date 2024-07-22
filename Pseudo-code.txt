@@ -1,0 +1,171 @@
+---- Pseudocode ----
+
+	-- Solucionando Problemas --
+
+Geralmente, a solução engloba 3 passos.
+
+O primeiro passo, é entender exatamente qual o problema. Para isso, escreva em um papel ate ele fazer sentido, e escreva diagramas se necessário.
+
+		- Plano -
+
+Quando for bolar um plano para solucioná-lo, tente responder essas perguntas:
+
+* O programa tem uma interface de usuário? Como ela se parece? Quais funcionalidades ela tem?
+
+* Quais entradas esse programa terá? O usuário irá fornecer as entradas, ou elas serão obtidas de algum outro lugar?
+
+* Qual a saída desejada?
+
+* Dadas as entradas, quais os passos necessários para retornar a saida desejada?
+
+		- Pseudo Código -
+	
+Pseudocódigo é uma maneira de escrever a lógica do programa em uma linguagem natural ao invés do código. Ele ajuda a analisar de maneira mais ampla os passos necessários para resolver o problema.
+
+			- Dividir e Conquistar -
+		
+O ideal é pegar um pseudocódigo, detectar os problemas, e dividi-los em problemas menores, visando resolver cada problema individualmente, para depois de solucionados, juntá-los. Começe do problema menor ou o mais simples, e comece a codificá-lo dali.
+
+- Resolvendo Fizz Buzz (zumbido efervescente) - 
+
+Entendendo o problema: 
+
+" Escreva um programa que o usuário ponha valores, e exiba os números de 1 ao número escrito. No entanto, para múltiplos de 3, exiba Fizz ao invés de números, e para múltiplos de cinco, exiba Buzz. Para números que são múltiplos de 3 e 5, exiba FizzBuzz. "
+
+Planejamento:
+
+* O programa tem interface de usuário? Como se parece?
+R - Como o programa vai ser apenas um programa de console de browser, nós não precisamos da interface. A única interação que será permitida entre os usuários será digitar um valor.
+
+* Quais os inputs o programa vai ter? A entrada será dada pelo usuário, ou vai conseguir o input de outro lugar?
+R - O usuário vai digitar o número em um prompt (janela popup).
+
+* Qual a saída desejada?
+R- A saída será uma lista de números de 1 até o desejado. Mas cada número que será dividido por 3 será Fizz, e cada número dividido por 5 será Buzz, e cada número dividido por 3 e 5 será FIzzBuzz.
+		
+Escrevendo o pseudocódigo:
+
+Quando o usuário entrar um número
+Fazer um loop do 1 até o número escrito
+Se o número for divisível por 3, imprima "Fizz"
+Se o número for divisível por 5, imprima "Buzz"
+Se o número for divisível por 3 e 5, imprima "FizzBuzz"
+Caso contrário, imprima o número normal
+
+Dividindo e Conquistando:
+
+Primeiramente, será usado o método "prompt":
+
+- let answer = parseInt(prompt("Please enter the number you would like to FizzBuzz up to: "))
+
+Em seguida, o Loop será feito:
+
+- for (let i = 1; i <= answer; i++){
+	console.log(i);
+}
+
+Logo após, mover para o próximo problema de retorna Fizz:
+
+- for (let i = 1; i <= answer; i++){
+	if (i % 3 === 0){
+		console.log("Fizz");
+	} else {
+		console.log(i);
+	}
+}
+
+Agora, mover para o passo de retornar Buzz:
+
+- for (let i = 1; i <= answer; i++){
+	if (i % 3 === 0){
+		console.log("Fizz");
+	} else if (i % 5 === 0) {
+		console.log("Buzz");
+	} else {
+		console.log(i);
+	}
+}
+
+E por último, retornar o FizzBuzz:
+
+- for (let i = 1; i <= answer; i++){
+	if (i %3 === 0 && i % 5 === 0){
+		console.log("FizzBuzz");
+	} else if (i % 3 === 0){
+		console.log("Fizz");
+	} else if (i % 5 === 0) {
+		console.log("Buzz");
+	} else {
+		console.log(i);
+	}
+}
+
+O programa está pronto e retornará os valores desejados:
+
+let answer = parseInt(prompt("Please enter the number you would like to FizzBuzz up to: "))
+for (let i = 1; i <= answer; i++){
+	if (i %3 === 0 && i % 5 === 0){
+		console.log("FizzBuzz");
+	} else if (i % 3 === 0){
+		console.log("Fizz");
+	} else if (i % 5 === 0) {
+		console.log("Buzz");
+	} else {
+		console.log(i);
+	}
+}
+
+	-- Construtores de um pseudocódigo --
+
+- Sequence:
+	Input: READ, OBTAIN, GET
+	Output: PRINT, DISPLAY, SHOW
+	Compute: COMPUTE, CALCULATE, DETERMINE
+	Initialize: SET, INIT
+	Add: INCREMENT, BUMP
+	Sub: DECREMENT
+
+- For:
+	FOR iteration bounds sequence
+	ENDFOR
+
+- While:
+	WHILE condition sequence
+	ENDWHILE
+
+- Case:
+	CASE expression OF
+	condition1: sequence 1
+	condition2: sequence 2
+	...
+	conditionN: sequence n
+	OTHERS: default sequence
+	ENDCASE
+
+- Repeat-until:
+	REPEAT sequence
+	UNTIL condition
+
+- If-then-else:
+	IF condition THEN
+		sequence 1
+	ELSE
+		sequence 2
+	ENDIF
+
+- Calling Classe/Functions:
+	CALL AvgAge with StudentAges
+	CALL Swap with CurrentItem and TargetItem
+	CALL getBalance RETURNING aBalance
+	CALL SquareRoot with orbitHeight RETURNING norminalOrbit
+	
+- Exception Handling:
+	BEGIN
+	statements
+	EXCEPTION
+		WHEN exception
+		  statements to handle the exception
+		WHEN another exception
+		  statements to handle the exception
+	END
+

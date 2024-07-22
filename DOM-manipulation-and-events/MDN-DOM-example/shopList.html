@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shop List</title>
+        <style></style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="title-area"></div>
+            <div id="input-area"></div>
+            <div id="list-area"></div>
+        </div>
+        <script>
+            const container = document.querySelector("#container");
+            const titleArea = document.querySelector("#title-area");
+            const inputArea = document.querySelector("#input-area");
+            const listArea = document.querySelector("#list-area");
+
+            // Title Area:
+            const title = document.createElement("h1");
+            title.classList.add("title");
+            title.textContent = "My shopping list";
+
+            // Input Area:
+
+            const newItem = document.createElement("p");
+            newItem.classList.add("newItem");
+            newItem.textContent = "Enter a new item:";
+            const newInput = document.createElement("input");
+            newInput.classList.add("newInput");
+            const newButton = document.createElement("button");
+            newButton.classList.add("newButton");
+            newButton.textContent = "Add item"
+            newButton.setAttribute("style","margin-left: 10px;")
+            inputArea.setAttribute("style","display:flex;flex-direction:row; align-items:center;")
+            newInput.setAttribute("style","margin-left:10px;")
+            newButton.addEventListener("click", () => {
+                alert("AAAAAAAAAAAAAAAAAAAAA");
+            })
+
+            // List Area:
+            const newList = document.createElement("ul");
+            newList.classList.add("newList");
+            const newListItem = document.createElement("li");
+            newListItem.classList.add("newListItem");
+            newListItem.textContent = "Eggs";
+            const newListButton = document.createElement("button");
+            newListButton.classList.add("newListButton");
+            newListButton.textContent = "Delete";
+            const newListItem2 = document.createElement("li");
+            newListItem2.classList.add("newListItem");
+            newListItem2.textContent = "Milk";
+            const newListButton2 = document.createElement("button");
+            newListButton2.classList.add("newListButton");
+            newListButton2.textContent = "Delete";
+            const newListItem3 = document.createElement("li");
+            newListItem3.classList.add("newListItem");
+            newListItem3.textContent = "Bread";
+            const newListButton3 = document.createElement("button");
+            newListButton3.classList.add("newListButton");
+            newListButton3.textContent = "Delete";
+            const newListItem4 = document.createElement("li");
+            newListItem4.classList.add("newListItem");
+            newListItem4.textContent = "Humous";
+            const newListButton4 = document.createElement("button");
+            newListButton4.classList.add("newListButton");
+            newListButton4.textContent = "Delete";
+            
+            newListButton.setAttribute("style","margin-left:10px; margin-top:5px;margin-bottom: 5px;")
+            newListButton2.setAttribute("style","margin-left:10px; margin-top:5px;margin-bottom: 5px;")
+            newListButton3.setAttribute("style","margin-left:10px; margin-top:5px;margin-bottom: 5px;")
+            newListButton4.setAttribute("style","margin-left:10px; margin-top:5px;margin-bottom: 5px;")
+
+
+            // Append Area:
+            // Title Area:
+            titleArea.appendChild(title);
+
+            // Input Area:
+            inputArea.appendChild(newItem);
+            inputArea.appendChild(newInput);
+            inputArea.appendChild(newButton);
+
+            // List Area:
+            listArea.appendChild(newList);
+            newList.appendChild(newListItem);
+            newListItem.appendChild(newListButton);
+            newList.appendChild(newListItem2);
+            newListItem2.appendChild(newListButton2);
+            newList.appendChild(newListItem3);
+            newListItem3.appendChild(newListButton3);
+            newList.appendChild(newListItem4);
+            newListItem4.appendChild(newListButton4);
+
+            // Container:
+            container.appendChild(titleArea);
+            container.appendChild(inputArea);
+            container.appendChild(listArea);
+            
+        </script>
+    </body>
+</html>

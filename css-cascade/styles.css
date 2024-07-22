@@ -1,0 +1,67 @@
+/* Specifity */
+/* Rule 1 */
+/* 
+.subsection {
+    color: blue;
+}
+
+.main .list{
+    color:red;
+} 
+*/
+
+/* Rule 2 */
+/*
+#subsection {
+    color:blue;
+}
+*/
+
+/* Rule 3 */
+/*
+#subsection {
+    background-color: yellow;
+    color: blue;
+}
+
+.main #subsection{
+    color: red;
+} 
+*/
+
+/* Rule 4 */
+/* 
+.class.second-class{
+    font-size: 12px;
+}
+
+.class .second-class{
+    font-size: 24px;
+} 
+*/
+
+/*-------------------*/
+
+/* Inheritance */
+/*
+#parent {
+    color: red;
+}
+  
+.child {
+    color: blue;
+}
+*/
+
+/*-------------------*/
+
+/* Rule Order */
+/*
+.alert {
+    color: red;
+}
+  
+.warning {
+    color: yellow;
+}
+*/

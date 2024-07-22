@@ -1,0 +1,385 @@
+------ Javascript ------
+
+* Adicionar dentro do código: <body> <script> JS code </script> </body>
+* Adicionar de arquivo externo: <body><script src="algo.js"></script></body>
+** Adicionar o script no head: <head><script src="algo.js" defer></head> // o defer faz o arquivo ser lido depois do HTML ser analisado, útil para quando usar manipulação DOM
+* console.log() - Exibe o valor da operação JS na tela de console
+
+* Linguagem Dinamicamente Tipada: Existem tipos de dados, mas as variáveis não são presas a eles, ou seja, uma variável pode armazenar uma string, logo em seguida, ser substituída ou armazenar um number, etc.
+
+---- Variáveis e Operadores ----
+
+-- Variáveis: --
+	var - Escopo no body
+	let - Escopo local
+	Const - Constante
+	(let nameVar = value) == (let nameVar; nameVar = value)
+	
+-- Operadores: --
+	
+	Operandos: São a quem os operadores são aplicados. (5 * 2) = 5 e 2 são operandos e * o operador
+	Operador: Simbolo que representa a operação matemática a ser realizada nos operandos
+		Unary: Quando tiver apenas um operando, o operador é unário. (X = -Y) = O operador - mostra que X será o inverso de Y
+		* Unário + Antes de não números, converte os valores para números
+		Binary: Quando tiver dois operando, é binário. (x+y)
+	
+	Operadores Matemáticos:
+	+ Adição
+	- Subtração
+	* Multiplicação
+	/ Divisão
+	% Resto (10 % 3 == 1)
+	** Expenenciação (2 ** 3 == 8)
+	= Igual 
+	== Igual Valor
+	=== Igual Valor e Tipo
+	> Maior
+	>= Maior ou igual
+	< Menor
+	<= Menor ou igual
+	!= Diferente
+	
+	Concatenar Strings (+): Juntar. Os números so são considerados strings depois de serem somados a uma string, sendo considerados como números antes e realizando suas operações normais.
+	String + String = String ("Hello" + "World" = "HelloWorld")
+	String + Number = String ("2"+ 1 = "21"
+	Number + String = String (2 + "1" = "21"
+	Number + Number + String = **String (2 + 2 + "1" == "41")
+	String + Number + Number = String ("2" + 2 + 1 == "221")
+	** Operadores - * e / convertem "strings números" em números para realizar as operações, caso necessário ("6" - 3 = 3)
+
+	Incremento e Decréscimo (Apenas em variáveis):
+	 ++ Incremento (counter = 1; ++counter; result = 2)
+	 -- Decremento (counter = 2; --counter; result = 1)
+	 Quando usados como prefixo (++counter), o valor vai ser incrementado (ou decrescido) e imediatamente sera usados o resultado do operador. Quando usado pós (counter++), o valor vai ser incrementado (ou decrescido), mas ainda irá usar seu valor anterior. 
+Ex: let counter = 0; alert (++count); //Valor retornado é 1
+let counter = 0; alert (count++); //Valor retornado é 0
+let counter = 0; count++; ++count; alert(count); //Valor retornado é 2
+
+	Bitwise:
+	& AND
+	| OR
+	^ XOR
+	~ NOT
+	<< LEFT SHIFT
+	>> RIGHT SHIFT
+	>>> ZERO-FILL RIGHT SHIFT
+	
+	Lógicos:
+	&& AND
+	|| OR
+	! NOT (inverte)
+	? Operador ternário
+	?? Nullish Coalescing (a ?? b = se a tiver valor definido, entao a, se não tiver, então b)
+	
+Precedência de operadores:
+(Unario +) > (Unário -) > (**) > (* /) > (+ -) > (=)
+	 
+
+---- Datatypes e Conditionals ----
+
+--- Data: ---
+
+	-- String - 'Hello', "Hello", `Hello`
+		* ' e ", apresentam praticamente a mesma função. ` no entanto, funciona como "função extendida", onde permite embutir variáveis e 	expressões em uma string, amarrando em ${...}
+
+	-- Numbers - 5, 6.35, Infinity,-Infinity,NaN estão inclusos
+		* Numbers podem armazenar valores de até 1.7976931348623157 * 10³⁰⁸, mas fora do "safe" range (2⁵³-1) haverá um erro de precisão
+		
+	-- BigInt - Valores acima de 2⁵³-1 (9007199254740991) só são mostrados de forma precisa usando bigint
+
+	-- Booleans - true & false;
+
+	-- Null - null (valor especial que representa vazio)
+
+	-- Undefined - undefined (valor não foi definido)
+
+	-- Symbol - symbol (usado para criar identificadores únicos para objetos)
+
+	-- Object - Todos os valores que não forem primitivos (só contém um valor especifico, como strings, numbers) ficam inclusos em objetos, como as arrays
+
+	-- ** TypeOf - typeof(x) (Operador que retorna o tipo do operando)
+
+-- Methods: --
+
+* Blocos de código que realizam ações e funções específicas nos elementos.
+
+Strings:
+
+string.length - Tamanho da string
+string.charAt() - Retorna o caractere na posição (0 - length-1)
+string.charCodeAt() - Retorna o código do caractere (UTF-16)
+string.at() - charAt mais novo (permite o uso de indexes negativos)
+string.slice(start,end) - Extrai um pedaço da string e retorna ele (parâmetros negativos fazem a contagem ser do final para o inicio)
+string.substring(start,end) - Semelhante ao slice, mas os parâmetros negativos são igual a 0
+string.substr(start, length) - Semelhante ao slice, mas o 2º argumento determina o tamanho do corte
+string.toUpperCase() - Deixa a string capitalizada
+string.toLowerCase() - Deixa a string normal
+string.concat(string2,string3) - Une duas ou mais strings
+string.trim() - Remove o white space de ambos os lados da string
+string.trimStart() - Remove o white space do começo
+string.trimEnd() - Remove o white space do fim
+string.padStart(length, value) - Preenche o length do começo da string com o value determinado
+string.padEnd(length, value) - Preenche o length do fim da string com o value determinado
+string.repeat(quantity) - Repeta uma string por um número determinado de vezes
+string.replace(original,new) - Troca o texto original pelo novo texto
+	* As flags /i (insensitive) e /g (global) permitem trocar a palavra independente da capitalização, e todas no texto de uma vez
+string.replaceAll(original, new) - Troca todas as palavras originais do texto pelas novas
+string.split("separator") - Converte a string em uma array, dividindo as letras pelo separator (se for omitido "", a array retornada sera composta apenas de single characters) 
+
+-- Condicionais --
+
+If - Se a condição for true, executar o bloco X
+Else - Se a condição for false, executar o bloco Y
+If/else - Se ... Senão ...
+Else if - Se a condição 1 for verdadeira, executar o bloco X. Além disso, se a condição 1 for falsa e a condição 2 for verdadeira, executar o bloco Y. Se ambas forem falsas, executar o bloco Z
+
+Operador Ternário:
+	If - else = (operation) ? condition true, do this : condition false, do this
+	If-else-if = (operation) ? do this : (operation) ? do this : do this
+
+switch(expression){
+case choice1 : code; break;
+case choice2: code; break;
+default: code;
+}
+* A expressão será avaliada. Se a opção 1 for selecionada, o código 1 será executado, e o programa retorna pra fora do switch. Senão, ele continua executando. Se a opção 2 for selecionada, o código 2 será executado, e o programa retorna pra fora do switch. Senão ele continua executando. Se nenhuma opção bater, ele irá executar o código da opção default, e então sairá do switch para retornar ao código original
+
+-- Function --
+
+* Conjunto de instruções que realizam uma tarefa. Podem ser reutilizados diversas vezes dentro do código, quando são chamados.
+
+* Parâmetro - São como placeholders para valores futuros.
+* Argumentos - São os valores dados aos placeholders.
+
+function name(param1,param2){ code }
+name(arg1,arg2) // Chamada da função
+
+---- Arrays e Loops ----
+
+--- Arrays ---
+
+* Tipo de objeto especial que pode armazenar diversos valores dentro de uma variável, aos quais são referidos através de números indexados
+
+const array_name = [item1, item2, item3]
+
+index 1 = array_name[0]
+
+* Dentro de arrays é possível armazenar diversos tipos de tipos, incluindo objetos
+
+-- Métodos --
+
+- Arrays: -
+
+array.length - Retorna o tamanho da array
+array.toString() - Converte a array em strings separadas por vírgula
+array.at(index) - Retorna o valor no index
+array[array.length-1] - Retorna o último valor da array
+array.join(separator) - Junta todos os elementos arrays em uma string separada pelo "separator" (se utilizar "", as letras ficarão juntas)
+array.pop() - Remove o último elemento de uma array e retorna o mesmo
+array.push() - Adiciona um novo elemento no fim da array
+array.shift() - Remove o primeiro elemento e troca todos os outros para uma index mais baixa
+array.unshift() - Adiciona um novo primeiro elemento e troca todos os outros para uma index mais alta
+array[array.length] - Adiciona um novo valor no final sem mover os outros elementos
+array1.concat(array2,array3) - Concatena (une) duas ou mais arrays em uma nova (tambem aceita string como argumento)
+array.copyWithin(index,ini,fim) - Copia todos os elementos do "ini" até o "fim" no index indicado (sobescreve os já existentes naquela posição)
+array.flat() - Cria uma nova array, a partir de sub-arrays concatenadas em uma camada especificada
+array.splice(position, howManyRemoved, newElements) - Adiciona novos items dentro da array 
+array.toSplice(position, howManyRemoved) - Cria uma nova array, copia os elementos da velha array removendo os elementos na posição indicada, mas mantêm a array original intacta
+array.slice(index) - Cria uma nova array e copia todos os elementos a partir da index
+
+- Array Search: -
+
+array.indexOf(value,start) - Procura o elemento dentro da array e retorna seu index
+array.lastIndexOf(value) - Retorna a última ocorrência do elemento especificado
+array.includes(value) - Retorna se a array tem o valor ou não
+array.find(function) - Retorna o valor do primeiro elemento array que passa pela função teste
+	* function myFunction (value, index, array){}
+array.findIndex(function) - Retorna o index do primeiro elemento array que passa pela função teste
+	* function myFunction (value, index, array){}
+array.findLast(function) - Retorna o valor do último elemento array que passa pela função teste
+	* function myFunction (value, index, array){}
+array.findLastIndex(function) - Retorna o index do último elemento array que passa pela função teste
+	* function myFunction (value, index, array){}
+	
+- Array Sort: -
+	
+array.sort() - Organiza de maneira alfabética
+array.reverse() - Inverte a ordem dos elementos de uma array
+array.sort().reverse() - Organiza de maneira alfabética decrescente (z-a)
+array.toSorted() - Organiza de maneira alfabética criando uma nova array, sem alterar a original
+array.toReversed() - Inverte a ordem dos elementos de uma array dentro de uma nova array
+array.sort(function(a,b){return a-b}) - Organiza os elementos em uma ordem númerica crescente
+array.sort(function(a,b){return b-a}) - Organiza os elementos em uma ordem númerica decrescente
+array.sort(function(){return 0.5 - Math.random()}) - Organiza de maneira aleatória
+	* Método mais preciso de ALEATÓRIO: Fisher Yates:
+	const points = [40, 100, 1, 5, 25, 10];
+
+	for (let i = points.length -1; i > 0; i--) {
+	  let j = Math.floor(Math.random() * (i+1));
+	  let k = points[i];
+	  points[i] = points[j];
+	  points[j] = k;
+	}
+	
+* Função que retorna o valor mínimo de uma array:	
+function myArrayMin(arr) {
+  return Math.min.apply(null, arr);
+}
+
+* Função que retorna o valor máximo de uma array:
+function myArrayMax(arr) {
+  return Math.max.apply(null, arr);
+}
+
+- Array Iteration: - 
+
+array.forEach(myFunction) - Chama uma função uma vez para cada elemento do array
+	* function myFunction(value,index,array){}
+array.map(myFunction) - Cria uma nova array performando uma função em cada um dos elementos (não altera a array original e não executa a função para elementos sem valor)
+	* function myFunction(value,index,array){}
+array.flatMap((x) => whatFunctionDo) - Mapeia todos os elementos de uma array e então cria uma nova array achatando todos os elementos
+array.filter(myFunction) - Cria uma nova array apenas com os elementos que passarem no teste
+	* function myFunction(value,index,array){}
+array.reduce(myFunction) - Passa uma função em cada um dos elementos de uma array para reduzí-la a um só valor em uma nova array
+	* function myFunction(total,value,index,array){}
+array.reduceRight(myFunction) - Passa uma função em cada um dos elementos de uma array para reduzí-la a um só valor em uma nova array (da direita pra esquerda)
+	* function myFunction(total,value,index,array){}
+array.every(myFunction) - Checa se todos os valores da array passam no teste
+	* function myFunction(value,index,array){}
+array.some(myFunction) - Checa se alguns elementos da array passam no teste
+	* function myFunction(value,index,array){}
+array.from(object) - Retorna uma array objeto de qualquer objeto com a propriedade length
+array.keys() - Retorna uma array objeto de iteradores com os valores chave de uma array
+	* for (let x of keys) {
+  		text += x + "<br>";
+	}
+arrays.entries() - Retorna uma array objeto de iteradores com os valores chave e o elemento de uma array
+	for (let x of f) {
+  		document.getElementById("demo").innerHTML += x;
+	}
+array.with(index,value) - Modifica os elementos da array sem alterar a array original
+* Operador spread (...) - O operador ... expande um iterável em mais elementos
+	* Ex: const q1 = ["Jan", "Feb", "Mar"];
+	const q2 = ["Apr", "May", "Jun"];
+	const q3 = ["Jul", "Aug", "Sep"];
+	const q4 = ["Oct", "Nov", "May"];
+	const year = [...q1, ...q2, ...q3, ...q4];
+	
+--- Loops ---
+
+* Loops são utilizados para repetição de tarefas. Cada vez que o loop é acionado, o código será um pouco diferente, ou o mesmo código, porêm com variáveis diferentes
+
+	Tipos de Loop:
+
+* Loop for:
+for (initializer; condition; final-expression){ code here }
+	Ex: cats = [A,B,C]; for (let i=0;i < cats.length; i++){ console.log(cats[i]); }
+
+* Loop for...of - Muito utilizado em coleções (como arrays, set, map)
+for (variable of iterable){ code here }
+	Ex: cats = [A,B,C]; for (const cat of cats){ console.log(cat); }
+	
+* Loop do...while:
+initializer do { code... final-expression } while (condition)
+	Ex: cats = [A,B,C]; let i = 0; let myFavCats = "My cats are called ";
+	do { if (i === cats.length-1){ myFavCats += `and ${cats[i]}.`;} else { myFavCats += `and ${cats[i]}.`; i++ } 
+	while (i < cats.length)
+	
+* Loop while:
+initializer while (condition){ code... final-expression }
+	Ex: cats = [A,B,C]; let i = 0; let myFavCats = "My cats are called ";
+	while (i < cats.length){ if (i === cats.length-1){ myFavCats += `and ${cats[i]}.`;} else { myFavCats += `and ${cats[i]}.`; i++ }
+	
+	Declarações importantes:
+
+* break - Utilizado para sair de loops
+for (initializer; condition; final-expression){ what-to-do; if (conditiion) { break };
+
+* continue -  Utilizado para pular para a próxima iteração caso a condição seja verdadeira
+for (initializer; condition; final-expression){ what-to-do; if (conditiion) { continue };
+
+--- TDD --- 
+
+Test Driven Development (TDD) se refere a prática de escrever testes automatizados que descrevem como o código deve funcionar antes de escrever o código. O test() irá falhar antes de escrever o código, e é possível saber que o teste está correto quando terminar o código e o resultado for exibido.
+
+No JS, existem alguma maneiras de fazer isso, entre elas:
+* Criar um arquivo nomeArquivo.spec.js (que irá ser usado para teste) e um arquivo nomeArquivo.js (com o código normal)
+* Dentro do arquivo .spec.js, irá conter o código conforme o exemplo:
+
+Ex:
+const helloWorld = require('./helloWorld');
+describe('Hello World', function() {
+  test('says "Hello, World!"', function() {
+    expect(helloWorld()).toEqual('Hello, World!');
+  });
+});
+
+** Na primeira linha, o require() irá importa o código do arquivo js para ser testado
+** Na segunda linha, o describe() será como o corpo do teste. Basicamente, tudo que está fazendo é rodar o código e testando para ver se a saída está correta.
+** Na terceira linha, a função test() descreve o que deverá acontecer em inglês pleno (ou outro idioma), e inclui a função expect(), que irá analisar se a saída do teste é igual a saída esperada.
+*** É possível adicionar no test() a função skip, para ele pular aquele teste (test.skip())
+
+* No arquivo .js, será necessário utilizar o comando module.exports, que irá exportar o que for indicado para ser importado e usado por outros arquivos, conforme o exemplo:
+
+Ex:
+const helloWorld = function() {
+  return 'Hello, World!'
+}
+
+module.exports = helloWorld
+
+** Na primeira linha, foi criada a variável que irá conter a função que retornará a string 'Hello, World!'.
+* Na última linha, o module.exports irá exportar apenas a variável helloWorld, que irá ser importada no arquivo .spec.js
+
+---- Objetos ----
+
+* Além de serem uma maneira de armazenar dados, arrays também tem um set de funções para manipular esses dados.
+
+-- Map(function) --
+
+* Map() é uma função, que espera um callback como argumento (passar uma função como argumento de outra função).
+* O map() tem a função de iteragir o argumento por cada um dos membros automaticamente, sem a necessidade de utilizar o loop for, ou algo similar. Ele retorna uma nova array e não muda a original.
+
+Ex: const arr = [1,2,3,4,5];
+function addOne(num) {
+	return num + 1
+}
+
+const mappedArr = arr.map(addOne);
+console.log(mappedArr);
+
+ou
+
+const mappedArr = arr.map((num) => num + 1);
+console.log(mappedArr)
+
+-- Filter(function) --
+
+* O método filter() é similar ao map. Ele irá iteragir por toda a array e aplicar a função callback em todos os items. No entanto, ao invés de transformar os valores na array, ele irá retornar apenas os valores aos quais a função callback retornar true.
+
+Ex: function isOdd(num){
+	return num % 2 !== 0;
+}
+const arr = [1,2,3,4,5];
+const oddNums = arr.filter(isOdd);
+console.log(oddNums);
+
+ou
+
+const oddNums = arr.filter((num) => num % 2 !== 0)
+console.log(oddNums);
+
+-- Reduce(function) --
+
+* O método reduce() tem o objetivo de pegar os valores no objetivo, e reduzi-los a um número. Ele também receber uma função callback como argumento, mas essa função recebe dois parâmetros. O primeiro argumento é o acumulador, que irá receber o valor atual naquele ponto do loop e adicioná-lo ao total. O segundo argumento é o que irá receber o valor atual.
+
+* arr.reduce(function, initialValue);
+
+Ex: const arr = [1,2,3,4,5];
+const productOfAllNums = arr.reduce((total, currentItem) => {
+	return total * currentItem;
+}, 1);
+console.log(productOfAllNums);
+console.log(arr);
+
+

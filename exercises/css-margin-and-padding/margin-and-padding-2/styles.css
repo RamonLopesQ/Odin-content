@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+.pai{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.one,.two,.three{
+    background-color: #e0f2f7;
+    padding: 8px;
+    margin: 8px;
+}
+
+.one{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.two{
+    padding: 16px 8px;
+}
+
+.three{
+    text-align: center;
+}
+
+.button{
+    padding: 8px 24px;
+    background-color: white;
+    border: 0;
+}

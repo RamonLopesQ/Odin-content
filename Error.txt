@@ -1,0 +1,31 @@
+-- Entendendo Erros --
+
+	- A anatomia de um erro -
+	
+Um erro é um tipo de objeto construído dentro da linguagem JS, consistindo em um nome/tipo, e uma mensagem. Erros contêm informações cruciais que podem ajudar a localizar o código responsável pelo erro, determinando porque ele está ocorrendo, e resolvendo esse erro.
+
+* Errors vs. Warning: Erros irão parar a execução do programa ou qualquer processo que estava sendo realizado, e evitar ações posteriores. Avisos, no entanto, são mensagens que provêm entendimento de problemas potenciais que não necessariamente vão fechar o programa durante a execução. Esses avisos tem a função mais informativa e menos significante que erros, e geralmente são exibidos em amarelo, enquanto erros geralmente são exibidos em vermelho.
+
+		- Tipos de erros comuns em JS - 
+	
+ReferenceError: É um erro que ocorre quando a variável referenciada não foi declara e/ou inicializada dentro do escopo atual.
+	* Dentro da mensagem, poderá conter "at arquivo.js:12", ou algo semelhante. Essa parte serve para informar a localização do erro, que pode ser interno, ou externo, e em qual/quais linhas ele está ocorrendo.
+	
+SyntaxError: É um erro que ocorre quando o código não está escrito corretamente de acordo com as normais gramaticais do JS.
+
+TypeError: É um erro que pode ocorrer por algumas razões diferentes:
+- Um operando ou argumento passado a função é incompatível com o tipo esperado pelo operador ou função
+- Quando tentar modificar um valor que não pode ser modificado
+- Quando tenta usar um valor de uma maneira inapropriada
+
+	- Dicas para resolver erros -
+	
+1 - Não ignorar as mensagens de erro, pois elas dizem exatamente o que está errado com o código, e quais linhas devem ser examinadas para encontrar a origem do erro. Sem essas mensagens, seria um pesadelo encontrar esses erros.
+
+2 - Não tem problema "googlear" o erro, pois é bem provável encontrar a solução pra aquele problema em locais como StackOverflow, ou em uma documentação.
+
+3 - Usar o debugger. Ele é ótimo para troubleshoot, e é uma ferramenta critica para desenvolvedores. É possível definir breakpoints, ver os valores de qualquer variável dada em qualquer ponto da execução da aplicação, linha por linha.
+
+4 - Fazer uso do console. console.log() é uma escolha popular para depuração rápida, visto que ele oferece um feedback imediato sem precisar passar entre as funções. Além disso, existem outros métodos úteis como console.table(), console.trace(), etc.
+
+

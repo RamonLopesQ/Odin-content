@@ -1,0 +1,134 @@
+-- Links e Tutoriais --
+
+Chrome Dev Tools Documentation - https://developer.chrome.com/docs/devtools?hl=pt-br
+
+Acessar e alterar CSS - https://developer.chrome.com/docs/devtools/css?hl=pt-br
+
+CSS Features Reference - https://developer.chrome.com/docs/devtools/css/reference?hl=pt-br
+
+Introdução a alteração DOM - https://developer.chrome.com/docs/devtools/dom?hl=pt-br
+
+Simular Device Mode - https://developer.chrome.com/docs/devtools/device-mode?hl=pt-br
+
+Depurar o JS - https://developer.chrome.com/docs/devtools/javascript?hl=pt-br
+
+Pausar o código com breakpoints - https://developer.chrome.com/docs/devtools/javascript/breakpoints?hl=pt-br
+
+---- DOM Manipulation e Eventos ----
+
+* O DOM (Document Object Model) é uma representação em forma de árvore dos conteúdos em uma página da web - uma árvore de nós com diferentes relações dependendo em como estão distribuídos nos documentos HTML.
+
+* O objeto que está um nível acima, é chamado de pai, e ele abriga os objetos que são chamados de filhos. Objetos que estão no mesmo nível (no mesmo galho), são chamados de irmãos
+
+* Para trabalhar com DOM, são usados seletores para tornar alvo os nós que irão ser utilizados. Utilizar uma combinação de seletores de estilo CSS e propriedades de relação é uma maneira de mirar os nós desejados.
+
+	--- Métodos DOM ---
+
+* Quando um código HTML é analisado pelo web browser, ele é convertido para o DOM. Uma das diferenças primárias é que esses nós são objetos javascript, que tem diversas propriedades e métodos imbutidos nelas.
+
+* Para fazer muitas das manipulações DOM funcionarem corretamente, o certo é adicionar o script que inclui o JS no final do arquivo HTML, e não no inicio, para que o DOM só seja executado após os nós serem criados e analisados. Alternativamente, é possível adicionar o script no head, e incluir a keyword defer, para carregar o arquivo depois que o HTML for analisado.
+
+* Essas propriedades e métodos são ferramentas primárias para manipular uma página com JS. Algumas delas são:
+
+		-- Query selector: --
+
+- element.querySelector(selector) - Retorna uma referência ao primeiro selector correspondente
+- element.querySelectorAll(selectors) - Retorna uma "NodeList" contendo referência a todos os seletores correspondentes (o valor retornado não é uma array)
+
+		-- Element Creation: --
+
+- document.createElement(tagName, [options]) - Cria um novo elemento do tipo tagName. [options] é no caso de ser necessário adicionar novo parâmetros adicionais a função
+	* Essa função não coloca o novo elemento no DOM, apenas o cria na memória. Dessa maneira, é possível manipular o elemento (adicionando estilos, classes, ids, textos, etc), antes de colocá-lo na página.
+
+		-- Append elements: --
+
+- parentNode.appendChild(childNode) - Acrescenta o childNode como último filho do parentNode.
+- parentNode.insertBefore(newNode, referenceNode) - Insere newNode no parentNode antes do referenceNode
+
+		-- Remove elements: --
+
+- parentNode.removeChild(child) - Remove child do parentNode no DOM e retorna a referência ao filho
+
+		-- Altering elements: --
+
+* Quando referenciar a um elemento, é possível usar essa referência para alterar as próprias propriedades do elemento. Isso permite usar muita alterações úteis, como adicionar, remover ou alterar atributos, mudar classes, adicionar informação inline, e mais
+
+		-- Add inline style: --
+
+- element.style.property = "value";
+- element.setAttribute("style","property:value; property:value;");
+* É possível se referir a propriedade tanto usando camelCase quanto kebab-case
+	Ex: div.style.background-color; div.style.backgroundColor; div.style["background-color"]; div.style["backgroundColor"]
+	
+		-- Editing attributes: --
+
+- element.setAttribute("id", "theDiv");
+- element.getAttribute("id");
+- element.removeAttribute("id");
+
+		-- Working with Classes: --
+
+- element.classList.add("new");
+- element.classList.remove("new");
+- element.classList.toggle("active"); //Se o elemento não tiver classe ativa, adiciona, se tiver, remove
+
+-- Adicionar conteúdo de texto: --
+
+- element.textContent = "Hello World";
+
+-- Adicionar conteúdo HTML: --
+
+- element.innerHTML = "<span>Hello World!</span>
+
+	-- Eventos --
+	
+* Os eventos tem por objetivo tornar a manipulação DOM mais dinâmica ou sob demanda. Eles são ações que ocorrem na sua página web, como cliques de mouse, ou teclas pressionadas. Usando JS, nos podemos fazer nossa webpage escutar e reagir a esses eventos.
+
+* Existem 3 maneiras primárias de realizar isso:
+- Especificando atributos de função diretamente nos elementos HTML.
+- Determinando propriedades na forma de on<eventType>, como onclick, onmousedown.
+- Colocar event listeners nos nós DOM dentro do JS.
+
+** Event listerners são os mais comuns, mas os outros também são regularmente usados. 
+
+		-- Método 1: Diretamente no elemento --
+		
+<button onclick="alert('Hello World')"> Click Me </button>
+
+* Esse método é o menos ideal, por bagunçar o HTML com o JS, além de definir uma propriedade por elemento DOM, que não permite usar múltiplas propriedades.
+
+		-- Método 2: Determinando no on<eventType> --
+/html:		
+<button id="btn">Click me</button>
+
+/js:
+const btn = document.querySelector("#btn");
+btn.onclick = () => alert("Hello World");
+
+* Apesar de melhor, ainda sofre to mesmo problema de ter apenas uma propriedade por elemento DOM.
+
+		-- Método 3: Event Listerners --
+		
+/html:		
+<button id="btn">Click me</button>
+
+/js:
+const btn = document.querySelector("#btn");
+btn.addEventListerner("click", () => {
+	alert("Hello World");	
+});
+
+* Esse método permite o uso de múltiplos event listeners se necessário, por consequência permitindo o uso de diversas propriedades dentro de um elemento DOM.
+
+* É possível usar funções com nome em qualquer um dos três métodos. Assim, torna o código muito mais limpo, e facilita muito utilizar essas funções múltiplas vezes no código.
+
+		-- Parâmetro e -- 
+		
+* O parâmetro e é utilizado para referir ao evento. Quando utilizado em uma função callback, ele referência ao pŕoprio evento onde ele foi colocado. Com isso, permite acesso a propriedades e métodos que só tem dentro de um objeto.
+
+btn.addEventListener("click", function (e) {
+  console.log(e.target);
+});
+
+
+

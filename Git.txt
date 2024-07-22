@@ -1,0 +1,60 @@
+Configuração inicial do GIT:	
+	Instalar Git:
+	git config --global user.name "Your Name"
+	git config --global user.email "yourname@example.com"
+
+	Mudar o Branch principal do git pra main:
+	git config --global init.defaultBranch main
+
+	Colorful output do Git:
+	git config --global color.ui auto
+
+	Mudar o comportamento do branch para merging:
+	git config --global pull.rebase false
+
+	Verificar o user e o email registrado do Git:
+	git config --get user.name
+	git config --get user.email
+
+	Criar uma SSH key:
+	ssh-keygen -t ed25519
+	* Verificar se ja tem presente o ed: ls ~/.ssh/id_ed25519.pub
+
+	Obter a SSH key do pc:
+	cat ~/.ssh/id_ed25519.pub
+	* No meu caso era ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC5Dsnkegi52SCcfsuIkAg/1c2/69Pq3YS7QASplltR/ monzaoxd@monzaoxd-Aspire-A515-55G.
+	* Copia e cola na new SSH key no site do github
+
+	Verificar se a conexao SSH funciona:
+	ssh -T git@github.com 	
+	
+	Configurar para usar o git commit sem o flag -m:
+	git config --global core.editor "code --wait"
+	
+Básico do Git:
+
+	git init: Cria um repositório vazio no git local
+	git clone endereço_no_git: Clona o repositório no git para o seu computador local (pode ser o link https, ssh)
+	git remote -v: Testa a conexao entre o repositorio clonado e o original no git
+	touch name_file: Cria um novo arquivo local 
+	git status: Mostra o status do git (se algum novo arquivo precisa ser commitado, ou ja se encontra presente)
+	git add name_file: Adiciona o arquivo ao "staging room" do git (como se fosse uma sala de espera do git), mas o arquivo ainda nao foi completamente enviado ao git
+	git commit -m "comentario": Grava as alterações feias no repositório git
+	git log: Exibe o log de alterações de mudanças do repositório
+	git add .: Adiciona todos os arquivos no diretório atual e todos os subsequentes para a staging area
+	git push: Faz o upload dos arquivos no repositorio github selecionado
+	
+-- Git Branching --
+	
+* Branches no Git permitem que os repositórios no git guardem múltiplas versões dos seus arquivos ao mesmo tempo
+
+	git branch - Exibe todos os galhos disponíveis
+	git branch <branch_name> - Cria um novo galho no git
+	git branch -d <branch_name> - Deleta um galho ja fundido
+	git branch -D <branch_name> - Deleta um galho que ainda não foi fundido
+	git push origin --delete <branch_name> - Deleta o galho do repositório remoto no github
+	git checkout <branch_name> - Muda para o galho selecionado
+		git checkout main - Volta pro main branch
+	git checkout -b <branch_name> - Cria e muda para o novo galho
+	git merge <branch_name> - Funde o galho desejado com o galho ao qual se encontra atualmente
+	

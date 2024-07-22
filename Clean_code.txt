@@ -1,0 +1,31 @@
+-- Clean Code --
+
+- Dicas para código limpo -
+
+	1 - Nomeando Funções e Variáveis:
+
+* camelCase: É uma maneira convencional de nomear que permite usar múltiplas palavras juntas sem espaços ou pontuação. O primeiro nome é escrito em lower case, e os nomes seguintes tem a primeira letra em upper case.
+
+* Procurar sempre usar um nome descritivo, ao invés de utilizar apenas letras aleatórias.
+
+* Usar um vocabulário consistente, onde variáveis que referem ao mesmo tópico possuam um nome próximo, para facilitar a leitura e a compreensão de quem for ler o código. 
+
+** Variáveis devem sempre começar com um substantivo ou um adjetivo, e funções com um verbo. 
+
+* Procurar usar sempre um nome pesquisável e imediatamente compreensível, para evitar que quem for ler o código perca tempo tentando entender da onde veio aquilo, ou calculando por fora algo para compreender.
+
+	2 - Recúo e comprimento da linha:
+	
+* Geralmente, o código se torna mais fácil de ler se manualmente o editor evitar usar linhas maiores que 80 caracteres. Muitos editores de códigos tem uma linha no display que mostra quando o limite é cruzado. Quando quebrar a linha manualmente, tenta fazer imediatamente depois de um operador ou uma vírgula.
+
+* Ponto e vírgula é geralmente opcional em JS, visto que o compilador automaticamente adiciona quando necessário. No entando, o ideal é acostumar a utilizar sempre, visto que a adição automática, pode acabar levando a um bug inesperado (caso quem escreveu utilizar uma quebra de linha errada, ou algo do tipo).
+
+	3 - Comentários:
+	
+* Comentários são uma ótima ferramenta. No entanto, podem acabar sendo usados de maneira erronea, pricipalmente para iniciantes, que tentam comentar exatamente tudo que estão fazendo.
+
+* Por mais que comentários sejam uma ferramenta extramente útil, existem outras ferramentas utilizadas que ja detectam automaticamente as mudanças, como por exemplo, o git. Através do git log, é possível analisar as mudanças no código de maneira mais consistente.
+
+* O mesmo vale para códigos que não estão sendo usados. Se for necessário, consiga-o através de versões mais antigas do código no git. Senão, apenas delete, justamente para evitar confusão e economizar linhas no código.
+
+* Quando realizar comentários, evite dizer o que aquilo faz. No lugar disso, procure dizer o porque daquilo está ali, e apenas quando necessário (não é preciso realizar comentários para coisas óbvias).

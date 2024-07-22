@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS Cascade</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <!-- Specificity -->
+        <!-- Rule 1: More classes-->
+        <div class="main">
+            <div class="list subsection"> Red Text </div>
+        </div>
+
+        <!-- Rule 2: ID x Classes -->
+        <div class="main">
+            <div class="list" id="subsection"> Blue Text </div>
+        </div>
+
+        <!-- Rule 3: ID x Class/ID -->
+        <div class="main">
+            <div class="list" id="subsection"> Red Text on yellow background </div>
+        </div>
+
+        <!-- Rule 4: Chaining x Inhenritance -->
+        <div class="class">
+            <div class="class second-class"> Red Text on yellow background </div>
+        </div>
+
+        <!-- Inheritance -->
+        <div id="parent">
+            <div class="child">A</div>
+        </div>
+
+        <!-- Rule Order -->
+        <div>
+            <div class="alert warning">B</div>
+        </div>
+    </body>
+</html>

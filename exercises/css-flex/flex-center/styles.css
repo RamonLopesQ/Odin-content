@@ -1,0 +1,19 @@
+.container{
+    background-color: #a9d0f5;
+    border: 3px solid darkblue;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items:center;
+    height: 100vh;
+    margin: auto;
+    
+}
+
+.container-item{
+    background-color: #f5a9d0;
+    border: 3px solid #8a0829;
+    color: black;
+    font-weight: 700;
+    padding: 10px 10px 30px 10px;
+}

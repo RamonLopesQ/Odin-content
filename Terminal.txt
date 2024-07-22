@@ -1,0 +1,85 @@
+Terminal:
+
+Abrir terminal - ctrl + alt + t
+Copiar e colar no terminal - ctrl + shift + c / ctrl + shift + v
+Tab completion - Tab no terminal vai completar automatico a palavra 
+Abrir VSCode - code nomeProjeto
+
+Diretórios (ls): 
+
+* Caminho onde se encontram as pastas ou arquivos dentro do sistema
+
+pwd - Home Directory (Mostra o diretorio que você está no presente momento)
+pwd -P - Mostra o endereço fisico atual, com todos o symlinks resolvidos
+ls - List files and directories (mostra todas as pastas e arquivos presentes no local atual)
+ls diretorio - Mostra os arquivos no diretorio indicado sem sair do diretorio atual
+ls -a - Mostra tudo no diretorio (visivel e invisivel)
+ls -l - Mostra os arquivos, em uma lista mais detalhada
+ls -lh - Mostra os arquivos, com o seu tamanho em bytes
+ls -lhS - Mostra o tamanho, e organiza a lista por ordem de tamanho
+ls -lt - Mostra o tamanho, e organiza pela data de última modificação
+ls -lr - Organiza os arquivos em ordem alfabetica decrescente
+
+Links (ln):
+
+* Permite associar um arquivo ou diretório ao outro. Hard links criam copias identicas do arquivos linkado no disco, que será atualizado automaticamente quando o arquivo de origem for alterado. Symlinks (symbolic links) cria associação entre diretórios e arquivos, além de associar diretórios ou arquivos em outras pastas do sistema.
+
+ln sourcefile targetfile - Cria um link entre os arquivos
+ln -f sourcefile targetfile - Força um link mesmo se ja existir um erro
+ln -s sourcefile targetfile - Cria um symlink 
+ 
+Change Directories (cd):
+
+* O comando cd permite mudar de diretorio para outra pasta ou arquivo. Ele recebe um argumento: o caminho do diretório que deseja navegar
+
+cd ~/Documents - Abre o diretorio selecionado
+cd .. - Navega para o diretório pai
+cd - Seleciona o Home Directory
+
+Creating Directories (mkdir):
+
+mkdir name - Cria o diretorio seguido do nome desejado
+mkdir -p a/b/c - Permite a criação de diretórios aninhados
+mkdir -v a - Adiciona informações úteis quando escrever um script que vai executar diversos comandos 
+
+Copying Files (cp):
+
+cp sourcef targetf - Copia um arquivo para um destino
+cp *pattern targetf - Copia todos os arquivos com aquele padrão para o destino
+cp -Rv soucerf targetf - Copia e apresenta informaçoes adicionais de um diretório ao outro
+cp -f sourcef targetf - Força o overwrite
+cp -i sourcef targetf - Confirma o overwrite
+
+Delete File (rm):
+
+rm sourcefile - Deleta o arquivo
+rm -v sourcefile - Lista os arquivos deletados com o comando rm
+
+Moving Files (mv):
+
+mv sourcefile targetfile - Move os arquivos, semelhante ao copiar arquivos
+
+Input/Output (|,>,<):
+
+* O operador | serve para juntar diferentes comandos menores, redirecionando a saida de um comando para a entrada de outro comando
+| - "pipe" operator
+* ls -a ~ | grep _ - Faz uma ligação entre os comandos, onde o input grep é adicionado ao ls para procurar todos os diretorios que contêm o underscore
+
+* O operador > serve para redirecionar a saida de um processo e enviá-la para outro processo.
+> - "write" operator
+* ls -a ~ | grep _ > underscores.txt - Faz a ligaçao entre os comandos, onde o input grep é adicionado ao ls para procurar todos os diretórios que contêm o underscore, e escreve os resultados no documento underscores.txt
+
+* O operador < serve para ler os dados dentro de um arquivo
+< - "read" operator
+
+Instalar arquivos .deb no diretório:
+
+sudo dpkg -i nome_do_arquivo.deb
+
+Abrir a pasta e arquivos atuais no VSC: 
+
+code .
+
+Abrir o documento html no browser (já dentro do diretório):
+
+google-chrome index.html
