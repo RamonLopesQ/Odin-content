@@ -1,0 +1,54 @@
+main div{}
+
+/* Afeta somento os filhos diretamente */
+main > div{}
+
+/* Afeta apenas os netos */
+main > div > div{}
+
+/* Afeta apenas a div com a class child group2 */
+.group1 + div{}
+
+/* Afeta apenas a div com a class child group3 */
+.group1 + div + div{}
+
+/* Afeta todos os irmãos do .group1 */
+.group1 ~ div{}
+
+a:link{}
+
+a:visited{}
+
+a:hover{}
+
+a:active{}
+
+.myList:nth-child(5){}
+
+.myList:nth-child(5n){}
+
+/* ------------------ */
+
+.emojify::before{}
+
+.emojify::after{}
+
+.textLetter::selection{}
+
+.textLetter::first-letter{}
+
+.textLetter::first-line{}
+
+/* ------------------ */
+
+[src] {}
+
+img[src]{}
+
+img[src="puppy.jpg"]{}
+
+[class^='aus']{}
+
+[class$='.jpg']{}
+
+[for*='ill']{}

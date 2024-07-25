@@ -1,0 +1,39 @@
+* {
+    padding: 20px;
+}
+
+.parent {
+    background-color: #819FF7;
+
+}
+
+.child-one{
+    background-color: #81F7D8;
+    position: relative;
+    top:5px;
+    left: 5px;
+}
+
+.child-two{
+    background-color: orange;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+}
+
+.child-three{
+    background-color: pink;
+    position: fixed;
+    top:20px
+}
+
+.child-four{
+    background-color: yellow;
+    position:sticky;
+    top: 20px;
+}
+
+.child-five{
+    background-color:gray
+}

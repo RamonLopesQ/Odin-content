@@ -183,13 +183,38 @@ Ele é construído utilizando várias APIs que trabalham juntas. O DOM principal
 * Quando separados por pontos, é chamado de chaining selector, onde apenas o elemento que tiver aquelas duas ou mais classes sofrerá a alteração de estilo (.a.b{} ou .a#b{})
 * Elementos separados por espaço seguem a regra da ancestralidade, onde o primeiro é o pai, e os outros dentro dele são os herdeiros. Quando separados por pontos, apenas os elementos filhos que tiverem o primeiro ancestral comum irão herdar as características atribuídas. (.ancestral .herdeiros{})
 
--- CSS Externo,Interno e Inline --
+	-- CSS Units --
+
+* Unidades absolutas possuem o mesmo valor independente do contexto. Pixel é um exemplo de unidade absoluta.
+
+* Unidades relativas são aquelas que mudam seu valor baseado no contexto. Em é um exemplo de unidade relativa, onde seu valor irá depender do tamanho do elemento parente.
+
+		- Units -
+
+* px: Pixel. É o valor absoluto mais usado. Valor com aproximadamente 0,02646cm
+
+* em: Tamanho relativo ao pai do elemento. 1em = tamanho normal do elemento pai
+
+* rem: Tamanho relativo ao elemento raiz, independente de quantas camadas o elemento esteja dentro. 1rem = tamanho normal do elemento raiz
+
+* vh: View Height. Altura baseado no tamanho da tela. 1vh = 1% da altura da janela
+
+* vw: View Witdth. Largura baseada no tamanho da tela. 1vw = 1% da largura da janela
+
+* %: Porcentagem. Representa a fração de um valor relativo a outra quantidade
+
+* cm,m,mm,in,pc,pt,Q: Unidades métricas normais (valores absolutos). Geralmente não são usadas nas saídas de video de tela, visto que é mais fácil trabalhar com pixels para esse caso
+
+** 1 Inches (in) = 2.54cm = 96px
+1 Cm = 37.8px
+
+	-- CSS Externo,Interno e Inline --
 
 Externo: <head>  <link rel="stylesheet" href="styles.css">  </head>
 Interno: <head>  <style> CSS code </style> </head>
 Inline: <selector style="color:white; background-color:black">...</selector> 
 
--- Atributos --
+	-- Atributos --
 
 * height: 100vh e width: 100vw faz o conteúdo ocupar o tamanho todo da página (vh é view height e vw é view width)
 
@@ -197,31 +222,51 @@ color: #000000
 color: rgb(0,0,0)
 color: hsl(0,%,%)
 
+	-- Background --
+
 background-color: #000000
 background-color: rgb(0,0,0)
 background-color: hsl(0,%,%) 
+
+	-- Fonts --
+	
+- Importar a fonte de uma librarie online: pegar de um site através de um link, ou importar um documento com a fonte de um site ou diretório
+	* Link: <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	* Import: @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+	* Import de um arquivo local: @font-face {
+  					  font-family: my-cool-font;
+  					  src: url(../fonts/the-font-file.woff);
+				      }
 
 font-family: "font-name",family
 font-size: px
 font-weight: 0 (entre 1 e 1000; 700 equivale a bold)
 text-align: center
+letter-spacing: em
+line-height: 0
+text-transform: (capitalize, uppercase, lowercase, full-width, none)
+text-shadow: px
+.overflowing {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
-height: px (valor "auto", faz o ajuste proporcional entre o height e o width)
-width: px
-
--- CSS Cascade --
+	-- CSS Cascade --
 
 * Especificidade = Determina qual regra realmente vai ser aplicada ao HTML. Uma declaraçao CSS que é mais específica, irá apresentar precedência sobre as menos específicas (ID selector > Class selector > Type selector > Specific selector)
 * Herança = Algumas propriedades CSS que, quando aplicadas a um elementos, serão herdadas pelos seus descendentes. Propriedades baseadas em tipografia (color, font-size, font-family, etc) geralmente são herdadas, enquanto a maioria das propriedades não.
 
--- Box Models --
+	-- Box Models --
 
 padding: px; - Aumenta o espaço entre a borda do box e o conteúdo do box
 border: px; - Adiciona espaço entre a margem e o padding
 margin: px; - Aumenta o espaço entre a borda do box e as bordas do box adjacente
 *** box-sizing: border-box; - Em caso de adição de padding, o próprio CSS adequará o tamanho da caixa para o width e height definidos, diferente do content-box, que irá adicionar o tamanho do padding ao tamanho total da caixa
 
--- Block e Inline --
+	-- Block e Inline --
 
 * Div é um elemento de nível bloco. É geralmente usado como container para outros elementos serem agrupados
 * Span é um elemento de nível inline. É geralmente usado como agrupamento de conteúdo de texto para serem estilizados
@@ -230,7 +275,7 @@ display: block; - Elementos que apresentam esse tipo de display, irão se compor
 display: inline; - Elementos inline não começam uma nova linha. Eles aparece ao lado de quaisquer elementos q eles foram colocados ao lado. Ex: links, <a> tags
 display: inline-block; - Elementos que se comportam como inline elements, mas com padding e margin de blocos
 
--- Flexbox -- 
+	-- Flexbox -- 
 
 * É uma maneira utilizada para organizar itens em colunas e linhas. Esses itens irão flexionar (aumentar ou diminuir) baseado em algumas regras que podem ser definidas.
 * Um flex container é um elemento q tem display: flex nele. Um flex item é um elemento que vive dentro de um flex container
@@ -248,6 +293,154 @@ justify-content: center; - Alinha os items de acordo com o main axis (space-betw
 align-items: center; - Alinha os items de acordo com o cross axis
 gap: px; - Cria um espaço específico entre os flex items
 
+	-- Advanced Selectors --
+	
+> - Child combinator
++ - Adjacent sibling combinator
+~ - Geraneral sibling combinator
 
+Ex: <main class="parent">
+  	<div class="child group1">
+    		<div class="grand-child group1"></div>
+  	</div>
+  	<div class="child group2">
+    		<div class="grand-child group2"></div>
+  	</div>
+  	<div class="child group3">
+    		<div class="grand-child group3"></div>
+  	</div>
+ </main>
+ 
+* O seletor > irá pegar apenas os descendentes diretos, ou seja, se desejar afetar apenas os filhos diretor daquele elemento, no CSS:
 
+main > div{}
+
+* Para selecionar um elemento que está adjacente ao alvo, ou no mesmo nível (irmão), utilizar o seletor +:
+
+.group1 + div{} -> Seleciona a div class= child group2
+
+* Para selecionar todos os irmãos, não apenas o primeiro, utilizar o seletor ~:
+
+.group1 ~ div{}
+
+		- Pseudo-selectors -
+		
+* Pseudo-class selectors são prefixados com : e são uma maneira diferente de mirar elementos que ja existem no HTML. Pseudo-elements são prefixados com :: e são usados para mirar elementos que normalmente não existem na marcação
+
+			- Pseudo-Class -
+
+* Pseudo-classes de ação de usuários e dinâmicos:
+
+:focus - Aplica ao elemento selecionado tanto por cursor quanto por teclado
+
+:hover - Afeta o elemento ao qual o mouse se encontra sobre
+
+:active - Afeta o elemento que está sendo clicado
+
+* Pseudo-classes estruturais:
+
+:root - Classe que representa o nível mais alto do documento (o elemento que não possui família, como o elemento html em si)
+
+:first-child e :last-child - Afeta o primeiro e último irmãos, necessariamente
+
+:first-of-type - Seleciona o primeiro elemento do tipo
+
+:empty, :only-child, :nth-child - Afeta elementos sem filhos, que não possuem irmãos, e o nth elemento, necessariamente
+
+** nth-child() - Pode ser número (ex: 5 = 5º filho), número + n (ex: 5n = Todo 5º filho), even ou odd
+
+			- Pseudo-Elements -
+			
+::marker - Permite customizar o estilo dos números dos elementos <li>
+
+::first-letter e ::first-line - Permite colocar um estilo especial a primeira letra ou linha de um texto
+
+::selection - Permite mudar o highlight quando o usuário seleciona um texto na página
+
+::before e ::after - Permite adicionar elementos extras na página através do CSS, ao invés do HTML
+
+			- Seletores de Atributos -
+			
+[attribute] - Seleciona qualquer atributo que exista dentro do documento
+
+selector[attribute] - Seleciona apenas o atributo daquele seletor específico
+
+[attribute="value"] - Seleciona apenas o atributo que possuir aquele valor específico
+
+Ex: [src], img[src], img[src="puppy.jpg"]
+
+* É possível utilizar atributos com regular expressions:
+
+[attribute^="value"] - Qualquer atributo que inicie com o value
+
+[attribute$="value"] - Qualquer atributo que termine com o value
+
+[attribute*="value"] - Qualquer atributo que possua aquele value dentro do nome, independente do lugar que esteja
+
+	-- Positioning --
+	
+* position: static é a posição padrão dos elementos, e as propriedades top right bottom left não afetam ela. Já a position: relative é afetada por essas propriedades, tirando os elementos do flow natural do documento
+
+* position: absolute permite posicionar algo no ponto exato da tela sem a perturbação de outros elementos ao redor, ou seja, remove o elemento do flow natural, enquanto na position: relative sua posição irá depender do elemento ancestral
+
+* position: fixed também remove os elementos do fluxo natural do documento, e torna a posição relativa ao viewport, onde irá permanecer ali quando o usuário scrollar a página
+
+* position: sticky fará o elemento agir como um elemento normal até o usuário passar por ela, e a partir dai, esse elemento passará a ter a posição fixa, "grudando" na tela
+
+	-- Functions --
+	
+* Semelhante às linguagens de programação, funções em CSS são pedaços de códigos reusáveis que realizam tarefas específicas. Elas recebem "argumentos" entre parênteses, que serão usados pela função de maneira especifica.
+
+- rgb(red,green,blue) - rgb() é a função css, que irá receber os valores e atribuir a cor de acordo com a mistura delas
+
+Ex: color: rgb(0,42,255)
+
+- linear-gradient(angleOfDirection, color1, color2) - Recebe um ângulo de direção, em deg, e duas as cores, as quais irão definir o gradiente que as cores vão passar
+
+Ex: background: linear-gradient(90deg,blue,red)
+
+- calc() - Calcúla o valor baseado nos argumentos. Muito utilizado para o cálculo da área da tela na hora de dividir o tamanho de cada um dos elementos presentes, em especial pela conversão automática dos valores em rem, em, px, vh para o cálculo
+
+Ex: :root {
+	--header: 3rem;
+	--footer: 40px;
+	--main: calc(100vh - calc(var(--header) + var(--footer)));}
+
+- min(px, %) e max() - Determina o valor minimo e máximo de um elemento. Se não houver um valor definido em px, o valor será calculado em % baseado no elemento pai
+
+Ex: width: min(150px, 100%);
+width: max(100px, 4em, 50%);
+
+- clamp(smallestValue,idealValue,largestValue) - Define o tamanho ideal do elemento, tornando ele mais fluido e responsivo
+
+Ex: font-size: clamp(320px, 80vw, 60rem);
+
+	-- Custom Properties --
+	
+* Criar propriedades customizadas nos permite usar de referência um valor quantas vezes for necessário, em um documento. Por ser customizada, ao invés de ter que atualizar cada uma das instâncias de um valor específico, só é necessário atualizar uma instância, que é a propriedade customizada. Redefinir as cores de acordo com o contexto é extremamente útil, em especial para criar temas como dark e light, muito utilizado em sites atualmente
+
+Ex: .error-modal{
+	--color-error-text:red;
+	--modal-border: 1px solid black;
+	--modal-font-size: calc(2rem+5vw);
+	
+	color: var(--color-error-text);
+	border: var(--modal-border);
+	font-size: var(--modal-font-size);
+}
+
+* Primeiro é declarado a propriedade customizada com -- seguido do nome. Então, é armazarndo qualquer valor CSS na propriedade. Quando é necessário acessar a propriedade, é necessário escrever a função var() como o valor da propriedade CSS, e colocar o nome da propriedade dentro do parênteses, incluindo o --
+
+--custom-property: value;
+
+property: var(--custom-property,fallback**);
+
+** A função var() aceita um valor fallback como segundo argumento, que será usado caso a propriedade seja inválida ou não foi declarada ainda
+
+Ex: color: var(--color-error-text, red)
+
+* O escopo dessa propriedade se limita ao seletor onde ela foi declarada, e seus herdeiros. No entanto, caso seja declarada dentro do :root{}, será possível acessá-la em qualquer lugar do documento, visto que todos os elementos presentes são herdeiros da raiz
+
+	-- Browser Compatibility --
+	
 

@@ -1,0 +1,55 @@
+:root{
+    --header: 3rem;
+    --footer: 40px;
+    --main: calc(100vh - calc(var(--header) + var(--footer)));
+}
+
+#header {
+	height: var(--header);
+	background: linear-gradient(5deg, yellow, green);
+}
+#main {
+	height: var(--main);
+	background: linear-gradient(90deg, yellow, green);
+	margin-right: auto;
+	margin-left: auto;
+    
+}
+
+#footer {
+	height: var(--footer);
+	background: linear-gradient(25deg, yellow, green)
+}
+
+.child{
+    padding: 3px
+}
+
+.child-one{
+    color: rgb(0,42,255)
+}
+
+/* Min e Max */
+
+#container {
+	display: flex;
+    box-sizing: border-box;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: 6px solid black;
+	resize: both;
+	overflow: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#iconHolder {
+  width: min(150px, 100%);
+  width: max(100px, 4em, 50%);
+  height: min(150px, 100%);
+  height: max(100px, 4em, 50%);
+  box-sizing: border-box;
+  border: 6px solid blue;
+}
+
