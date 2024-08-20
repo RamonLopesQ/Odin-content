@@ -382,4 +382,47 @@ const productOfAllNums = arr.reduce((total, currentItem) => {
 console.log(productOfAllNums);
 console.log(arr);
 
+-- Construtores --
+
+* Um construtor é um método especial utilizado para criar e inicializar um objeto criado a partir de uma classe
+
+Ex:
+function Player(name, marker){
+	this.name = name;
+	this.marker = marker;
+	}
+const objConst = new Player('steve', 'X');
+console.log(player.name);
+
+-- Prototype --
+
+* Todos os objetos javascript tem um protótipo. O protótipo é um outro objeto que o objeto original herda tudo, ou seja, o objeto original tem acesso a todos os métodos e propriedades do prototype
+
+Ex:
+Object.getPrototypeOf(player1) === Player.prototype; //true
+Object.getPrototypeOf(player2) === Player.prototype; //true
+
+* Para acessar o prototype, utilizar a função Object.getPrototypeOf(obj).
+
+* Quando criada uma propriedade dentro do prototype do construtor, todos os objetos criados desse construtor passam a conseguir acessar essa propriedade.
+
+Ex:
+Player.prototype.sayHello = function() {
+   console.log("Hello, I'm a player!");
+};
+
+player1.sayHello(); // logs "Hello, I'm a player!"
+player2.sayHello(); // logs "Hello, I'm a player!"
+
+* Outras maneiras de acessar o prototype (porém não são recomemdadas):
+player1.__proto__ === Player.prototype; //true
+player2[[Prototype]] === Player.prototype; //true
+
+* Quando criadas propriedades e funções comuns dentro do prototype, o uso de memória é menor, pois todos os objetos irão herdar essas características
+
+Object.getPrototypeOf() - Obtêm ou mostra o prototype de um objeto
+
+Object.setPrototypeOf() - Define ou muta esse prototype
+
+
 

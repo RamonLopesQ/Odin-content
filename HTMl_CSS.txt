@@ -276,6 +276,8 @@ Ele é construído utilizando várias APIs que trabalham juntas. O DOM principal
 ** 1 Inches (in) = 2.54cm = 96px
 1 Cm = 37.8px
 
+* fr: Fractional Units. É uma unidade usada dentro do grid para torná-lo dinâmico. Ele usa qualquer espaço restante no grid. Por exemplo, se o espaço é de 400px, e existem 4 items na grid, 1fr vai ser equivalente a 100px
+
 	-- CSS Externo,Interno e Inline --
 
 Externo: <head>  <link rel="stylesheet" href="styles.css">  </head>
@@ -514,3 +516,57 @@ Ex: color: var(--color-error-text, red)
 :valid{} - Muda o estilo da janela de um formulário quando for válido
 
 :invalid{} - Muda o estilo da janela do formulário quando for inválido
+
+	-- Grid --
+	
+* O modelo de display: grid, foi criado com o intuito de trabalhar mais fácil com layouts de duas dimensões. Ele é um módulo que equaliza mais fácil o tamanho e a movimentação dos items em um container através de um sistema de grades
+
+** É possível adiciona uma grid dentro de outra grid
+
+* 
+
+display: grid - Cria uma área de grades que irá afetar apenas os filhos diretos do elemento
+
+grid-template-rows: px px - Define o tamanho das linhas
+
+grid-template-colums: px px - Define o tamanho das colunas
+
+grid-template: rowValue / columnValue
+
+grid-auto-rows: px - Define o tamanho padrão de cada uma das linhas
+
+grid-auto-columns: px - Define o tamanho padrão de cada uma das colunas
+
+row-gap: px - Define o espaçamento entre linhas
+
+column-gap: px - Define o espaçamento entre colunas
+
+grid-row-start/grid-row-end: 0 - Define em qual linha as células vão começar e qual linha vai terminar
+
+grid-column-start/grid-column-end: 0 - Define em qual coluna as células começam e terminam
+
+grid-area: rowStart/ columnStart/ rowEnd/ columnEnd - Maneira simplificada de definir a posição da célula
+
+resize: both - Permite modificar o tamanho do container clicando e arrastando o botão no canto sudeste
+
+overflow: auto - Permite scrollar se modificar o tamanho do container para ser menor que a grid acomodou
+
+repeat() - É uma função disponível para as propriedades do CSS Grid que permite definir o numero de linhas e colunas e linhas no tamanho que desejamos sem precisar modificá-las manualmente
+
+	Ex:.grid-container {
+  		grid-template-rows: 150px 150px;
+ 		grid-template-columns: 150px 150px 150px 150px 150px;
+	}
+	
+	Pode ser reescrito:
+	
+	.grid-container {
+  		grid-template-rows: repeat(2, 150px);
+  		grid-template-columns: repeat(5, 150px);
+	}
+
+minmax(min,max) - Função que define o tamanho mínimo e máximo do item
+
+auto-fit - Encaixa o maior número inteiro de elementos dentro da área determinada da grid sem overflow. Funciona perfeitamente quando usado no repeat() juntamente com o minmax()
+
+auto-fill - Funciona como o auto-fit. No entanto, quando tiverem muitos elementos, o auto-fill vai trabalhar com o valor mínimo para encaixar tudo, enquanto o auto-fit trabalha com o valor máximo
